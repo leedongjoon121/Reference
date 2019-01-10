@@ -1,0 +1,10 @@
+# JVM구조와 자바 런타임 메모리 구조
+## 자바 애플리케이션이 실행될 때 JVM에서 일어나는 일, 과정 설명
+
+
+## JVM (Java Virtual Machine)
+자바 가상머신으로 자바 바이트 코드를 실행할 수 있는 주체이다.
+CPU나 운영체제(플랫폼)의 종류와 무관하게 실행이 가능하다.
+즉, 운영체제 위에서 동작하는 프로세스로 자바 코드를 컴파일해서 얻은 바이트 코드를 해당 운영체제가 이해할 수 있는 기계어로 바꿔 실행시켜주는 역할
+
+JVM은 크게 Class Loader, Execution Engine, Garbage Collector, Runtime Data Area 로 나뉜다. 
