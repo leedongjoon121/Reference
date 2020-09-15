@@ -73,7 +73,35 @@ key-value가 1:1로 매핑되어야 하는 해시 테이블의 특성에 위배�
 
 ## 해시충돌 해결방법
 
+### 1. Chaining
 
+## ![사진](https://github.com/leedongjoon121/Reference/blob/img/img/hashCollisionResolve1.png?raw=true)
+
+
+체이닝은 저장소(bucket)에서 충돌이 일어나면 기존 값과 새로운 값을 연결리스트를 이용해 연결시키는 방법이다.
+
+### 장점
+
+- 한정된 저장소를 효율적으로 사용할 수 있다 => 미리 충돌을 대비해 많은 공간을 잡아놓을 필요가 없다
+- 해시 함수를 선택하는 중요성이 상대적으로 적다 => 충돌이 나도 그냥 연결해주면 되니까
+
+### 단점
+
+-한 hash에 자료들이 많이 연결되면 검색 효율이 낮아진다(쏠림 현상)
+- 외부 저장 공간을 사용한다 => 왜?
+
+
+### 2. Open Addressing(개방주소법)
+
+개방주소법은 비어있는 hash를 찾아 데이터를 저장하는 기법이다. 따라서 개방주소법의 해시 테이블은 hash와 value가 1:1관계를 유지한다.
+
+## ![사진](https://github.com/leedongjoon121/Reference/blob/img/img/hashCollisionResolve2.png?raw=true)
+
+```
+위의 그림에서 John과 Sandra의 hash가 동일해 충돌이 일어난다. 이때 Sandra는 바로 그 다음 비어있던 153 hash에 값을 저장한다. 그 다음 Ted가 테이블에 저장을 하려 했으나 본인의 hash에 이미 Sandra로 채워져 있어 Ted도 Sandra처럼 바로 다음 비어있던 154 hash에 값을 저장한다.
+
+이런 식으로 충돌이 발생할 경우 비어있는 hash를 찾아 저장하는 방법이 개방주소법이다. 이때, 비어있는 hash를 찾아가는 방법은 여러가지가 있다.
+```
 
 
 <hr/>
