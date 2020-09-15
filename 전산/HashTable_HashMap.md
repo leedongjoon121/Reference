@@ -1,3 +1,8 @@
+### 해시 테이블
+
+## ![사진](https://https://github.com/leedongjoon121/Reference/blob/img/img/hashTable.png?raw=true)
+
+
 ### HashMap 과 HashTable
 - 키에 대한 해시 값을 사용하여 값을 저장하고 조회하며, 키-값 쌍의 개수에 따라 동적으로 크기가 증가하는 associate array
 - associate array를 지칭하기 위해서 HashTable에서는 Dictionary라는 이름을 사용, HashMap 에서는 Map 이라는 용어 사용
