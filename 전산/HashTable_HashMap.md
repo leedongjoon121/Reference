@@ -1,6 +1,6 @@
 ### 해시 테이블
 
-## ![사진](https://https://github.com/leedongjoon121/Reference/blob/img/img/hashTable.png?raw=true)
+## ![사진](https://github.com/leedongjoon121/Reference/blob/img/img/hashTable.png?raw=true)
 
 
 ### HashMap 과 HashTable
