@@ -54,6 +54,29 @@ Direct-address table의 장점은 키의 개수와 테이블의 크기가 같기
 ```
 
 <hr/>
+<hr/>
+
+## 해시충돌
+
+## ![사진](https://github.com/leedongjoon121/Reference/blob/img/img/hashCollision.png?raw=true)
+
+## ![사진](https://github.com/leedongjoon121/Reference/blob/img/img/hashCollision2.png?raw=true)
+
+```
+John과 Sandra의 hash가 2로 같다. 이런 현상을 hash collision이라고 한다.
+
+해시 함수로 해시를 만드는 과정에서 서로 다른 key가 같은 해시로 변경되면 같은 공간에 2개의 value가 저장되므로
+key-value가 1:1로 매핑되어야 하는 해시 테이블의 특성에 위배된다.
+해시 충돌은 필연적으로 나타날 수 밖에 없다.
+
+```
+
+## 해시충돌 해결방법
+
+
+
+
+<hr/>
 
 ### HashMap 과 HashTable
 - 키에 대한 해시 값을 사용하여 값을 저장하고 조회하며, 키-값 쌍의 개수에 따라 동적으로 크기가 증가하는 associate array
