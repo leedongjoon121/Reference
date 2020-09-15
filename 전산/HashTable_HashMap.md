@@ -53,8 +53,8 @@ Direct-address table의 장점은 키의 개수와 테이블의 크기가 같기
 해시 충돌을 해결하기 위한 다양한 방법들이 고안되었다.
 ```
 
-<hr/>
-<hr/>
+<br/>
+<br/>
 
 ## 해시충돌
 
@@ -70,6 +70,8 @@ key-value가 1:1로 매핑되어야 하는 해시 테이블의 특성에 위배�
 해시 충돌은 필연적으로 나타날 수 밖에 없다.
 
 ```
+
+<br/>
 
 ## 해시충돌 해결방법
 
@@ -117,7 +119,21 @@ key-value가 1:1로 매핑되어야 하는 해시 테이블의 특성에 위배�
 
 ### HashMap 과 HashTable 차이점
 ```
-둘의 가장 큰 차이점은 동기화 보장 유뮤, 키와 값에 null 가능 여부
-동기화가 필요 없다면 HashMap, 동기화 보장이 필요하면 HashTable
-동기화 보장 유무 차이 외에는 차이가 거의 없으며 자바 기준 사용법도 동일
+1. 보조 해시 함수
+HashMap은 보조 해시 함수(Additional Hash Function)를 사용하기 때문에 보조 해시 함수를 사용하지 않는 HashTable에 비하여 
+해시 충돌(hash collision)이 덜 발생할 수 있어 상대으로 성능상 이점이 있다.
+
+2. 동기화
+HashMap의 경우 동기화를 지원하지 않는다. 그래서 Hashtable은 동기화 처리라는 비용때문에 HashMap에 비해 더 느리다고 한다.
+프로그래밍상의 편의성 때문에 멀티쓰레드 환경에서도 Hashtable 을 쓰기 보다는HashMap을 다시 감싸서
+Map m = Collections.synchronizedMap(new HashMap(...));
+과 같은 형태가 최근에는 더 선호됨
+
 ```
+
+### 해시충돌 기법
+```
+Java HashMap에서 사용하는 방식은 Separate Channing이다. Open Addressing은 데이터를 삭제할 때 처리가 효율적이기 어려운데, HashMap에서 remove() 메서드는 매우 빈번하게 호출될 수 있기 때문이다.
+게다가 HashMap에 저장된 키-값 쌍 개수가 일정 개수 이상으로 많아지면, 일반적으로 Open Addressing은 Separate Chaining보다 느리다. Open Addressing의 경우 해시 버킷을 채운 밀도가 높아질수록 Worst Case 발생 빈도가 더 높아지기 때문이다. 반면 Separate Chaining 방식의 경우 해시 충돌이 잘 발생하지 않도록 '조정'할 수 있다면 Worst Case 또는 Worst Case에 가까운 일이 발생하는 것을 줄일 수 있다.
+```
+
