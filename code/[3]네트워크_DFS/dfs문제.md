@@ -1,4 +1,5 @@
 
+```java
 public class Solution {
 
 static int min = Integer.MAX_VALUE; // 최솟값 하나 셋팅 
@@ -43,3 +44,4 @@ static int min = Integer.MAX_VALUE; // 최솟값 하나 셋팅
 	}
 
 }
+```
