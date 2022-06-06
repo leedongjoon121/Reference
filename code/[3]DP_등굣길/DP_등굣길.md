@@ -1,3 +1,4 @@
+```java
 class Solution {
     public int solution(int m, int n, int[][] puddles) {
         
@@ -45,3 +46,4 @@ class Solution {
 		return board[n][m];
     }
 }
+```
