@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = new int [commands.length];
+        int rows = commands.length;
+        for(int p = 0 ; p < rows; p++){
+            int i = commands[p][0];
+            int j = commands[p][1];
+            int k = commands[p][2];
+            
+            answer[p] = solve(i,j,k,array);
+        }
+        return answer;
+    }
+    
+    public int solve (int i , int j , int k, int [] array){
+        int [] newArr = new int [j-i+1];
+        int index = 0;
+        for(int p = i-1; p < j; p++ ){            
+            newArr[index] = array[p];
+            index++;
+        }
+        Arrays.sort(newArr);
+        
+        return newArr[k-1];
+    }
+}
