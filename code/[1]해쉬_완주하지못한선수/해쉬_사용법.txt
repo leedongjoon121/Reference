@@ -1,0 +1,44 @@
+import java.util.HashMap;
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer ="";
+        HashMap<String, Integer> hm = new HashMap<>();
+        for(String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
+        //이 함수는 'B'라는 Key에 해당하는 Value가 있으면 가져오고, 아닐 경우 0을 Default로 지정하여 사용하겠다는 의미의 함수이다.
+
+        for(String player : completion) hm.put(player, hm.get(player) -1);
+        for(String key : hm.keySet()) {
+        	if(hm.get(key) != 0) {
+                System.out.println("key : "+key +", value : "+hm.get(key));
+        		answer = key;
+        		System.out.println(answer);
+        		break;
+        	}
+        }
+        return answer;
+    }
+}
+
+
+
+class Solution_Hash {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String player : participant) 
+            map.put(player, map.getOrDefault(player, 0) + 1);
+        for (String player : completion) 
+            map.put(player, map.get(player) - 1);
+
+            Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+
+        while(iter.hasNext()){
+            Map.Entry<String, Integer> entry = iter.next();
+            if (entry.getValue() != 0){
+                answer = entry.getKey();
+                break;
+            }
+        }
+        return answer;
+    }
