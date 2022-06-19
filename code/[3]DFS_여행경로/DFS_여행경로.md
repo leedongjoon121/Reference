@@ -1,3 +1,4 @@
+```java
 import java.util.*;
 class Solution {
 	boolean [] used;
@@ -34,3 +35,4 @@ class Solution {
 	}
     
 }
+```
