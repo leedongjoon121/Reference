@@ -1,0 +1,39 @@
+import java.util.*;
+class Solution {
+        public int solution(int n, int[][] edge) {
+        int answer = 0;
+        ArrayList<ArrayList<Integer>> graph = new ArrayList<>(); // 그래프 생성 
+        int[] distance = new int[n + 1]; // 거리를 저장할 배열 
+        
+        for (int i = 0; i < n + 1; i++)
+            graph.add(new ArrayList<>());
+        for (int i = 0; i < edge.length; i++) { // 간선 할당 
+            graph.get(edge[i][0]).add(edge[i][1]);
+            graph.get(edge[i][1]).add(edge[i][0]);
+        }
+        
+        
+        boolean[] visited = new boolean[n + 1]; // 정점 방문 여부 
+        visited[1] = true; // 1번은 무조건 방문 
+        Queue<Integer> bfs = new LinkedList<>(); // 선입선출을 링크드리스트로 구현 
+        bfs.add(1); // 1번 정점 부터 bfs 시작 ~ 
+       
+        while (bfs.size() != 0) { // 2~n까지 도착하는 경로 구하기
+            int nowNode = bfs.poll(); // 가장 앞에꺼 하나빼고, 그거 중심으로 같은 레벨 탐색 
+            ArrayList<Integer> node = graph.get(nowNode); // 그래프에서 현재 정점이랑 연결된 그래프 목록 가져옴 
+            for(int i = 0; i < node.size(); i++) { // 현재 정점으로부터 연결된 모든 목록 포문 
+                if (visited[node.get(i)] == false) {
+                    bfs.add(node.get(i)); // 방문 한 순간 큐에 넣고 
+                    visited[node.get(i)] = true; // 방문했다고 표기 
+                    distance[node.get(i)] = distance[nowNode] + 1; // 거리 +1 씩 증가  
+                }      
+            }  
+        }
+        
+        Arrays.sort(distance); // 오름차순 
+        int max = distance[distance.length-1]; // 젤 큰 얘를 max로 잡음 
+        for(int i = distance.length-1; distance[i] == max; i--) // max인 얘만 카운팅 
+            answer++;
+        return answer;
+    }
+}
