@@ -1,9 +1,9 @@
 ## 풀이
-1.한 글자 빼고 나머지가 같은 단어를 words에서 찾는다.
-2.찾은 단어를 visited = true 로 설정해 준다.
-3.cnt를 증가시키며 dfs 함수를 재귀 호출한다.
-4.모든 경우의 수를 보기 위해 visited = false로 재설정한다.
-5.begin과 target이 같은 경우, cnt를 answer에 대입하고 종료한다.
+### 1.한 글자 빼고 나머지가 같은 단어를 words에서 찾는다.
+### 2.찾은 단어를 visited = true 로 설정해 준다.
+### 3.cnt를 증가시키며 dfs 함수를 재귀 호출한다.
+### 4.모든 경우의 수를 보기 위해 visited = false로 재설정한다.
+### 5.begin과 target이 같은 경우, cnt를 answer에 대입하고 종료한다.
 
 ```java
 import java.util.*;
