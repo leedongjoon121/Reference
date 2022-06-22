@@ -1,6 +1,6 @@
 ## 기본 로직
 
-## bfs
+## BFS
 ```java
 	public static boolean [] visitied = new boolean[9];
 	public static ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();)
@@ -22,6 +22,25 @@
 				}
 			}
 			
+		}
+	}
+```
+
+<br/>
+
+## DFS
+
+```java
+	public static boolean [] visitied = new boolean[9];
+	public static ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();)
+
+	public static void dfs(int x) {
+		visitied[x] = true;
+		System.out.println(x + " ");
+		
+		for(int i = 0; i < graph.get(x).size(); i++) {
+			int v = graph.get(x).get(i);
+			if(!visitied[v]) dfs(v);
 		}
 	}
 ```
