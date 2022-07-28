@@ -1,0 +1,10 @@
+SELECT Name
+FROM Students
+WHERE Marks > 75
+ORDER BY SUBSTR(Name, - 3), Id ASC;
+
+SELECT name 
+FROM students 
+WHERE marks > 75 
+ORDER BY substr(name,LENGTH(name)-2,3), id
+;
