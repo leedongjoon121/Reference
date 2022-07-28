@@ -1,10 +1,14 @@
+## NAME을 끝에서 3자리 캐릭터 순으로 정렬하고, 이 캐릭터 중 중복되는 값이 있으면 ID 순으로 다시 정렬 (오름차순)
+```sql
 SELECT Name
 FROM Students
 WHERE Marks > 75
 ORDER BY SUBSTR(Name, - 3), Id ASC;
-
+```
+```sql
 SELECT name 
 FROM students 
 WHERE marks > 75 
 ORDER BY substr(name,LENGTH(name)-2,3), id
 ;
+```
